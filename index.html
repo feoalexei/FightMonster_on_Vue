@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster battle</title>
+    <link rel="stylesheet" href="foundation.min.css">
+    <link href="style.css" rel="stylesheet">
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <section class="players">
+            <div class="player">
+                <img src="https://sun9-4.userapi.com/c627628/v627628412/3aa8a/bSiDrTvAsiw.jpg?ava=1">
+                <h2>YOU</h2>
+                <div class="health-field">
+                    <div class="health-bar"
+                        :style="{width: playerHealth + '%'}">
+                        {{ playerHealth }}
+                    </div>
+                </div>
+            </div>
+            <img class="vs" src="img/vs.png">
+            <div class="player">
+                <img v-if="monsterHealth >= 90" src="img/alien.png">
+                <img v-if="monsterHealth < 90 && monsterHealth >= 82" src="img/reptile.png">
+                <img v-if="monsterHealth < 82 && monsterHealth >= 75" src="img/quenn.png">
+                <img v-if="monsterHealth < 75 && monsterHealth >= 68" src="img/fb.png">
+                <img v-if="monsterHealth < 68 && monsterHealth >= 60" src="img/covid.png">
+                <img v-if="monsterHealth < 60 && monsterHealth >= 52" src="img/alj.png">
+                <img v-if="monsterHealth < 52 && monsterHealth >= 45" src="img/tp.png">
+                <img v-if="monsterHealth < 45 && monsterHealth >= 38" src="img/simpson.png">
+                <img v-if="monsterHealth < 38 && monsterHealth >= 31" src="img/hl.png">
+                <img v-if="monsterHealth < 31 && monsterHealth >= 23" src="img/bill.png">
+                <img v-if="monsterHealth < 23 && monsterHealth >= 17" src="img/patr.png">
+                <img v-if="monsterHealth < 17 && monsterHealth >= 8" src="img/brother.png">
+                <img v-if="monsterHealth < 8 && monsterHealth >= 0" src="img/skull.png">
+                <h2>MONSTER</h2>
+                <div class="health-field">
+                    <div class="health-bar"
+                        :style="{width: monsterHealth + '%'}">
+                        {{ monsterHealth }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section  v-if="!gameIsRunning" class="row controls">
+            <button class="start" @click="startGame">START NEW GAME</button>
+        </section>
+
+        <section v-if="gameIsRunning" class="row controls">
+            <button class="attack" @click="attack">ATTACK</button>
+            <button class="fatality" @click="specialAttack">FATALITY</button>
+            <button class="heal" @click="heal">HEAL</button>
+            <button class="giveup" @click="giveUp">GIVE UP</button>
+        </section>
+
+        <section class="row logs" v-if="turns.length > 0">
+            <ul>
+                <li
+                    v-for="turn in turns"
+                    :class="{'player-turn': turn.isPlayer, 'monster-turn': !turn.isPlayer}"
+                >
+                    {{ turn.text }}
+                </li>
+            </ul>
+
+        </section>
+
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
