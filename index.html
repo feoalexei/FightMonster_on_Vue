@@ -22,8 +22,9 @@
                     </div>
                 </div>
             </div>
-            <img v-if="monsterHealth > 5" class="vs" src="img/vs.png">
-            <img v-if="monsterHealth <= 5" class="vs" src="img/win.png">
+            <img v-if="gameIsRunning" class="vs" src="img/vs.png">
+            <img v-if="monsterHealth <= 0 && !gameIsRunning" class="win" src="img/win.png">
+            <img v-if="playerHealth <= 0 && !gameIsRunning" class="lost" src="img/lost.png">
             <div class="player">
                 <img v-if="monsterHealth >= 90" src="img/alien.png">
                 <img v-if="monsterHealth < 90 && monsterHealth >= 82" src="img/reptile.png">
