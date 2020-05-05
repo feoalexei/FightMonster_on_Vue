@@ -114,6 +114,8 @@ button {
     list-style: none;
     padding: 0;
     width: 100%;
+    height: 20vh;
+    overflow-y: hidden;
 }
 
 .player-turn {
