@@ -4,7 +4,12 @@ new Vue ({
         playerHealth: 100,
         monsterHealth: 100,
         gameIsRunning: false,
-        turns: []
+        turns: [],
+        message1: 'Strike everything',
+        message2: 'Strike everything including 5G towers',
+        message3: 'Use medcine + random monster attack value',
+        message4: 'for cowards',
+
     },
     methods: {
         startGame() {

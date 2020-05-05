@@ -53,10 +53,10 @@
         </section>
 
         <section v-if="gameIsRunning" class="row controls">
-            <button class="attack" @click="attack">ATTACK</button>
-            <button class="fatality" @click="specialAttack">FATALITY</button>
-            <button class="heal" @click="heal">HEAL</button>
-            <button class="giveup" @click="giveUp">GIVE UP</button>
+            <button class="attack" @click="attack" v-bind:title="message1">ATTACK</button>
+            <button class="fatality" @click="specialAttack" v-bind:title="message2">FATALITY</button>
+            <button class="heal" @click="heal" v-bind:title="message3">HEAL</button>
+            <button class="giveup" @click="giveUp" v-bind:title="message4">GIVE UP</button>
         </section>
 
         <section class="row logs" v-if="turns.length > 0">
