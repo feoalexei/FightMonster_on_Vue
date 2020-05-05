@@ -49,7 +49,7 @@
         </section>
 
         <section  v-if="!gameIsRunning" class="row controls">
-            <button class="start" @click="startGame">START NEW GAME</button>
+            <button class="start" @click="startGame" v-bind:title="message0">START NEW GAME</button>
         </section>
 
         <section v-if="gameIsRunning" class="row controls">

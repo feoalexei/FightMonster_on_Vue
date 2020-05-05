@@ -5,6 +5,7 @@ new Vue ({
         monsterHealth: 100,
         gameIsRunning: false,
         turns: [],
+        message0: 'to destroy the Brand New World',
         message1: 'Strike everything',
         message2: 'Strike everything including 5G towers',
         message3: 'Use medcine + random monster attack value',
